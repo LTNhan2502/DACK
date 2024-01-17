@@ -18,13 +18,14 @@ Route::get('/', function () {
     return view('sanphamchitiet');
 });
 
-Route::prefix('admin')->group(function () {
-    Route::get('/', [AdminController::class, 'index'])->name('admin.index');
-});
+// Route::prefix('admin')->group(function () {
+//     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+// });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
-    Route::get('/', [AdminController::class, 'index'])->name('admin.login');
+    Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
 });
 
-Route::get('/admin/login', [AdminController::class], 'login')->name('admin.login');
-Route::post('/admin/login', [AdminController::class], 'check_login');
+Route::get('/admin/login', [AdminController::class, 'login'])->name('admin.login');
+Route::post('/admin/login', [AdminController::class, 'check_login']);

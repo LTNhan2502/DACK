@@ -48,7 +48,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="admin_assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs">{{ auth()->user()->name }}</span>
             </a> 
         </ul>
       </div>
@@ -67,8 +67,8 @@
           <img src="admin_assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Log out</a>
+          <p>{{ auth()->user()->name }}</p>
+          <a href="{{ route('admin.logout') }}"><i class="fa fa-circle text-success"></i> Log out</a>
         </div>
       </div>
       
@@ -129,9 +129,24 @@
     <section class="content">
 
       <!-- Default box -->
-      <div class="box">
-        
+      <div class="box">        
         <div class="box-body">
+          @if(Session::has('success'))
+            <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert" aria-label="true">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{ Session::get('success') }}
+            </div>
+          @endif
+          @if(Session::has('fail'))
+            <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert" aria-label="true">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{ Session::get('fail') }}
+            </div>
+          @endif
           @yield('main')
         </div>
         <!-- /.box-body -->
