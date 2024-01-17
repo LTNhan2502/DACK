@@ -21,3 +21,10 @@ Route::get('/', function () {
 Route::prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
 });
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
+    Route::get('/', [AdminController::class, 'index'])->name('admin.login');
+});
+
+Route::get('/admin/login', [AdminController::class], 'login')->name('admin.login');
+Route::post('/admin/login', [AdminController::class], 'check_login');
