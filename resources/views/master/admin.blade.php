@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <base href="/">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title> @yield('title') </title>
@@ -84,8 +85,8 @@
             <i class="fa fa-th"></i> <span>Categories</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a href="admin_assets/index.html"><i class="fa fa-circle-o"></i> List</a></li>
-            <li><a href="admin_assets/index2.html"><i class="fa fa-circle-o"></i> Add new</a></li>
+            <li><a href="{{ route('categories.index') }}"><i class="fa fa-circle-o"></i> List</a></li>
+            <li><a href="{{ route('categories.create') }}"><i class="fa fa-circle-o"></i> Add new</a></li>
           </ul>
         </li>        
 
