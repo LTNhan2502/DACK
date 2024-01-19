@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Categories;
+use App\Models\AdminController;
 use Illuminate\Http\Request;
 
-class CategoriesController extends Controller
+class AdminCategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,10 +42,10 @@ class CategoriesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Categories  $categories
+     * @param  \App\Models\AdminController  $adminController
      * @return \Illuminate\Http\Response
      */
-    public function show(Categories $categories)
+    public function show(AdminController $adminController)
     {
         //
     }
@@ -53,10 +53,10 @@ class CategoriesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Categories  $categories
+     * @param  \App\Models\AdminController  $adminController
      * @return \Illuminate\Http\Response
      */
-    public function edit(Categories $categories)
+    public function edit(AdminController $adminController)
     {
         return view('admin.categories.edit');
     }
@@ -65,10 +65,10 @@ class CategoriesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Categories  $categories
+     * @param  \App\Models\AdminController  $adminController
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Categories $categories)
+    public function update(Request $request, AdminController $adminController)
     {
         //
     }
@@ -76,10 +76,10 @@ class CategoriesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Categories  $categories
+     * @param  \App\Models\AdminController  $adminController
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Categories $categories)
+    public function destroy(AdminController $adminController)
     {
         //
     }
