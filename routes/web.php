@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminCategoriesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\CategoriesController;
+use App\Http\Controllers\Admin\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,8 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
     Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
-    Route::resource('categories', CategoriesController::class);
+    Route::resource('categories', AdminCategoriesController::class);
+    Route::resource('products', ProductController::class);
 });
 
 Route::get('/admin/login', [AdminController::class, 'login'])->name('admin.login');
