@@ -76,7 +76,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li>
-          <a href="">
+          <a href="{{ route('products.index') }}">
             <i class="fa fa-home"></i> <span>Dashboard</span>
           </a>
         </li>
@@ -95,8 +95,8 @@
             <i class="fa fa-th"></i> <span>Products</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ route('product.index') }}"><i class="fa fa-circle-o"></i> List</a></li>
-            <li><a href="{{ route('product.create') }}"><i class="fa fa-circle-o"></i> Add new</a></li>
+            <li><a href="{{ route('products.index') }}"><i class="fa fa-circle-o"></i> List</a></li>
+            <li><a href="{{ route('products.create') }}"><i class="fa fa-circle-o"></i> Add new</a></li>
           </ul>
         </li> 
         

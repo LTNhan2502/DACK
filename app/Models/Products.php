@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Products extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'price', 'img', 'content', 'user_id', 'category_id'];
+    protected $fillable = ['name', 'price', 'sale_price', 'img', 'content', 'category_id'];
 
     public function category(){
-        return $this->hasOne(AdminController::class, 'id', 'category_id');
+        return $this->hasOne(Categories::class, 'id', 'category_id');
     }
 }

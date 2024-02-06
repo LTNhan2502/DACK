@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +19,7 @@ class AdminController extends Controller
         //     'name' => 'Admin Manager',
         //     'email' => 'letrongnhan2502@gmail.com',
         //     'password' => bcrypt(123123)
-        // ]);
+        // ]);  
         return view('admin.login');
     }
 
