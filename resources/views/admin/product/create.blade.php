@@ -10,7 +10,7 @@
                     <label for="">Product Name</label>
                     <input type="text" class="form-control" placeholder="Product Name" name="name" id="">
                     @error('name')
-                        <span class="badge text-bg-warning">{{ $message }}</span>
+                        <span class="badge text-bg-warning">{{ $message }}</span>   
                     @enderror
                 </div>          
                 <div class="form-group">

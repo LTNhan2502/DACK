@@ -14,15 +14,15 @@
         </a>
     </form>
     <br>
-    <table class="table table-bordered">
+    <table class="table">
         <thead>
             <tr>
-                <th>STT</th>
-                <th>Product Image</th>
-                <th>Product Name</th>
-                <th>Product Price</th>
-                <th>Product Content</th>
-                <th>Product Category</th>
+                <th>No</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Category</th>
                 <th></th>
             </tr>
         </thead>
@@ -41,12 +41,17 @@
                     <td>{{ $model->content }}</td>
                     <td>{{ $model->category->name }}</td>
                     <td class="text-right">
-                        <a href="{{ route('products.edit', 1) }}" class="btn btn-sm btn-primary">
-                            <i class="fa fa-edit"></i>Edit
-                        </a>
-                        <a href="" class="btn btn-sm btn-danger">
-                            <i class="fa fa-trash"></i>Delete
-                        </a>
+                        <form action="{{ route('products.destroy', $model->id) }}" method="post">
+                            @csrf @method('DELETE')
+                            <a href="{{ route('products.edit', $model->id) }}" class="btn btn-sm btn-primary">
+                                <i class="fa fa-edit"></i>Edit
+                            </a>
+                            <button class="btn btn-sm btn-danger" type="submit"
+                            onclick="return confirm('Do you want to delete?')">
+                                <i class="fa fa-trash"></i>Delete
+                            </button>
+                        </form>
+                        
                     </td>
                 </tr>
             @endforeach
