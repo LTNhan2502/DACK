@@ -16,4 +16,12 @@ class Products extends Model
     public function category(){
         return $this->hasOne(Categories::class, 'id', 'category_id');
     }
+
+    //Localscope
+    public function scopeSearch($query){
+        if($key = request()->key){
+            $query = $query->where('name', 'like', '%'.$key.'%');
+        }
+        return $query;
+    }
 }

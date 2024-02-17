@@ -47,4 +47,7 @@
         </tbody>
     </table>
 
+    <div class="">
+        {{ $data->appends(request()->all())->links() }}
+    </div>
 @stop()

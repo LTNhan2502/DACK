@@ -1,10 +1,10 @@
 @extends('master.admin')
 @section('title', 'Product Manager')
 @section('main')
-    <form action="" method="POST" class="form-inline">
+    <form action="" class="form-inline">
         <div class="form-group">
             <label for="" class="sr-only">Label</label>
-            <input type="email" class="form-control" name="" id="" placeholder="Input field">
+            <input type="text" class="form-control" name="key" id="" placeholder="Search by Name">
         </div>
         <button type="submit" class="btn btn-primary">
             <i class="fa fa-search"></i>
@@ -59,4 +59,7 @@
         </tbody>
     </table>
 
+    <div class="">
+        {{ $data->appends(request()->all())->links() }}
+    </div>
 @stop()

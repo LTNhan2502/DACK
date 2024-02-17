@@ -17,7 +17,7 @@ class CategoriesController extends Controller
         // Categories::create([
         //     'name' => 'Fruits',           
         // ]);
-        $data = Categories::orderBy('id', 'DESC')->paginate(5);
+        $data = Categories::orderBy('id', 'DESC')->search()->paginate(5);
         return view('admin.categories.index', compact('data'));
     }
 
