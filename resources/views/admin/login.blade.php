@@ -39,6 +39,14 @@
             {{ Session::get('fail') }}
             </div>
         @endif
+        @if(Session::has('success'))
+            <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert" aria-label="true">
+                
+            </button>
+            {{ Session::get('success') }}
+            </div>
+        @endif
         <script>
           $(".alert").alert();
         </script>
@@ -73,7 +81,7 @@
     </form>
 
     <a href="#">I forgot my password</a><br>
-
+    <a href="{{ route('admin.register') }}" class="text-center">Register a new membership</a>
   </div>
   <!-- /.login-box-body -->
 </div>

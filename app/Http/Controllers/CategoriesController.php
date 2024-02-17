@@ -14,7 +14,11 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        // return view('admin.categories.index');
+        // Categories::create([
+        //     'name' => 'Fruits',           
+        // ]);
+        $data = Categories::orderBy('id', 'DESC')->paginate(5);
+        return view('admin.categories.index', compact('data'));
     }
 
     /**
@@ -24,7 +28,8 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        // return view('admin.categories.create');
+        $category = Categories::orderBy('name', 'ASC')->select('id', 'name')->get();        
+        return view('admin.categories.create', compact('category'));
     }
 
     /**
@@ -33,9 +38,18 @@ class CategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Categories $categories)
     {
-        //
+        $request->validate([
+            'name' => 'required|min:4|max:150|unique:categories',            
+        ]);
+
+        $data = $request->only('name');
+        if($categories::create($data)){
+            return redirect()->route('categories.index')->with('success', 'Create a new category successfully');
+        }else{
+            return redirect()->back()->with('fail', 'Fail to create a new category');
+        }
     }
 
     /**
@@ -55,9 +69,10 @@ class CategoriesController extends Controller
      * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function edit(Categories $categories)
+    public function edit(Categories $categories, $id)
     {
-        // return view('admin.categories.edit');
+        $category = Categories::findOrFail($id);        
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
@@ -67,9 +82,18 @@ class CategoriesController extends Controller
      * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Categories $categories)
+    public function update(Request $request, Categories $categories, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|min:2|max:150|unique:categories,name'.$categories->id,            
+        ]);
+
+        $data = $request->only('name');
+        if($categories::whereId($id)->update($data)){
+            return redirect()->route('categories.index')->with('success', 'Update category successfully!');
+        }else{
+            return redirect()->back()->with('fail', 'Fail to update category!');
+        }
     }
 
     /**
@@ -78,8 +102,13 @@ class CategoriesController extends Controller
      * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Categories $categories)
+    public function destroy(Categories $categories, $id)
     {
-        //
+        $category = Categories::findOrFail($id);
+        if($category->delete()){
+            return redirect()->route('categories.index')->with('success', 'Delete category successfully!');
+        }else{
+            return redirect()->back()->with('fail', 'Fail to delete category');
+        }
     }
 }
