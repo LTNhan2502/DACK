@@ -10,5 +10,11 @@ class Categories extends Model
     use HasFactory;
     protected $fillable = ['name'];
 
-    
+    //Localscope
+    public function scopeSearch($query){
+        if($key = request()->key){
+            $query = $query->where('name', 'like', '%'.$key.'%');
+        }
+        return $query;
+    }
 }
