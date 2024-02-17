@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\AdminController;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 
 class AdminCategoriesController extends Controller
@@ -15,7 +16,7 @@ class AdminCategoriesController extends Controller
      */
     public function index()
     {
-        return view('admin.categories.index');
+        
     }
 
     /**
@@ -25,7 +26,7 @@ class AdminCategoriesController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        
     }
 
     /**
@@ -58,7 +59,7 @@ class AdminCategoriesController extends Controller
      */
     public function edit(AdminController $adminController)
     {
-        return view('admin.categories.edit');
+        
     }
 
     /**
@@ -81,6 +82,6 @@ class AdminCategoriesController extends Controller
      */
     public function destroy(AdminController $adminController)
     {
-        //
+        
     }
 }

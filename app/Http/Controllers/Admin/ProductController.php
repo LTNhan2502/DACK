@@ -32,10 +32,7 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        // Categories::create([
-        //     'name' => 'Pumpkin',           
-        // ]);
+    {        
         $category = Categories::orderBy('name', 'ASC')->select('id', 'name')->get();        
         return view('admin.product.create', compact('category'));
     }
@@ -151,8 +148,13 @@ class ProductController extends Controller
     public function destroy(Products $products, $id)
     {
         $product = Products::findOrFail($id);
+        $img_name = $product->img;
         // dd($products);
         if($product->delete()){
+            $img_path = public_path('uploads/product').'/'.$img_name;
+            if(file_exists($img_path)){
+                unlink($img_path);
+            }
             return redirect()->route('products.index')->with('success', 'Delete successfully!');
         } else {
             return redirect()->back()->with('fail', 'Delete failed!');

@@ -42,4 +42,22 @@ class AdminController extends Controller
         auth()->logout();
         return redirect()->route('admin.login')->with('fail', 'Logged out');
     }
+
+    public function register(){
+        return view('admin.register');
+    }
+
+    public function check_register(){
+        request()->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required',
+            'retype_password' => 'required|same:password'
+        ]);
+
+        $data = request()->all('email', 'name');
+        $data['password'] = bcrypt(request('password'));
+        User::create($data);
+        return redirect()->route('admin.login')->with('success', 'Register successfully! Please login');
+    }
 }

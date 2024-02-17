@@ -105,8 +105,8 @@
             <i class="fa fa-shopping-cart"></i> <span>Orders</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a href="admin_assets/index.html"><i class="fa fa-circle-o"></i> List</a></li>
-            <li><a href="admin_assets/index2.html"><i class="fa fa-circle-o"></i> Statics</a></li>
+            <li><a href="{{ route('order.index') }}"><i class="fa fa-circle-o"></i> List</a></li>
+            {{-- <li><a href="{{ route('orders.create') }}"><i class="fa fa-circle-o"></i> Statics</a></li> --}}
           </ul>
         </li>   
         
