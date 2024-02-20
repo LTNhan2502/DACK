@@ -6,6 +6,12 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\Api\SpController;
+use App\Http\Controllers\Api\CartController;
+use App\Http\Controllers\Htsp;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +24,22 @@ use App\Http\Controllers\CategoriesController;
 |
 */
 
-Route::get('/', function () {
-    return view('sanphamchitiet');
-});
+// Route::get('/', function () {
+//     return view('home.index');
+// });
+Route::get('/', 'Htsp@index')->name('products');
 
-// Route::prefix('admin')->group(function () {
+
+Route::get('/san-pham-chi-tiet', [SpController::class, 'index'])->name('sanphamchitiet');
+Route::get('/cart', [CartController::class, 'index'])->name('cart');
+// Route::get('/', [Htsp::class, 'index'])->name('prd');
+
+
+
+
+
+
+// Route::prefix('/')->group(function () {
 //     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
 // });
 
