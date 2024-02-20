@@ -28,6 +28,7 @@ use App\Http\Controllers\Htsp;
 //     return view('home.index');
 // });
 Route::get('/', 'Htsp@index')->name('products');
+Route::get('/detail', 'Htsp@index1')->name('products');
 
 
 Route::get('/san-pham-chi-tiet', [SpController::class, 'index'])->name('sanphamchitiet');

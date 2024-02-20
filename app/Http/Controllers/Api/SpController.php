@@ -4,15 +4,18 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use DB;
 
 class SpController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        return view('home.sanphamchitiet');
+    public function index(){
+       
+        $products = DB::table('products')->get(); 
+        
+        return view('home.sanphamchitiet', compact('products'));
     }
 
     /**

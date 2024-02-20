@@ -62,11 +62,11 @@
                     </button>
                     <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                         <div class="navbar-nav mx-auto">
-                            <a href="index.html" class="nav-item nav-link">Home</a>
+                            <a href="h.html" class="nav-item nav-link">Home</a>
                             <a href="shop.html" class="nav-item nav-link">Shop</a>
-                            <a href="shop-detail.html" class="nav-item nav-link">Shop Detail</a>
+                            <a href="{{ route('sanphamchitiet') }}"  class="nav-item nav-link">Shop Detail</a>
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
+                                <a href="#" class="nav-link drospdown-toggle active" data-bs-toggle="dropdown">Pages</a>
                                 <div class="dropdown-menu m-0 bg-secondary rounded-0">
                                     <a href="cart.html" class="dropdown-item active">Cart</a>
                                     <a href="chackout.html" class="dropdown-item">Chackout</a>
@@ -78,7 +78,7 @@
                         </div>
                         <div class="d-flex m-3 me-0">
                             <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
-                            <a href="#" class="position-relative me-4 my-auto">
+                            <a  href="{{ route('cart') }}"class="position-relative me-4 my-auto">
                                 <i class="fa fa-shopping-bag fa-2x"></i>
                                 <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
                             </a>

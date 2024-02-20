@@ -62,9 +62,9 @@
                     </button>
                     <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                         <div class="navbar-nav mx-auto">
-                            <a href="index.html" class="nav-item nav-link">Home</a>
+                            <a href="k.html" class="nav-item nav-link">Home</a>
                             <a href="shop.html" class="nav-item nav-link">Shop</a>
-                            <a href="shop-detail.html" class="nav-item nav-link active">Shop Detail</a>
+                            <a href="{{ route('sanphamchitiet') }}"  class="nav-item nav-link active">Shop Detail</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                                 <div class="dropdown-menu m-0 bg-secondary rounded-0">
@@ -131,17 +131,19 @@
                 <div class="row g-4 mb-5">
                     <div class="col-lg-8 col-xl-9">
                         <div class="row g-4">
+                            @foreach ($products as $prd)  
                             <div class="col-lg-6">
                                 <div class="border rounded">
                                     <a href="#">
-                                        <img src="{{ asset('img/single-item.jpg') }}" class="img-fluid rounded" alt="Image">
+                                        <img src="uploads/product/{{$prd->img}}" class="img-fluid rounded" alt="Image">
                                     </a>
                                 </div>
                             </div>
+                            @endforeach
                             <div class="col-lg-6">
-                                <h4 class="fw-bold mb-3">Brocoli</h4>
+                                <h4 class="fw-bold mb-3">{{$prd->name}}</h4>
                                 <p class="mb-3">Category: Vegetables</p>
-                                <h5 class="fw-bold mb-3">3,35 $</h5>
+                                <h5 class="fw-bold mb-3">{{$prd->price}}</h5>
                                 <div class="d-flex mb-4">
                                     <i class="fa fa-star text-secondary"></i>
                                     <i class="fa fa-star text-secondary"></i>
