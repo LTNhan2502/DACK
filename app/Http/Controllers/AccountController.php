@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use Mail;
 class AccountController extends Controller
@@ -20,7 +21,7 @@ class AccountController extends Controller
 
     public function check_register(Request $req){
         $req->validate([
-            'name' => 'required|min:6|max100',
+            'name' => 'required|min:6|max:100',
             'email' => 'required|email|min:6|max100|unique:customers',
             'password' => 'required|min:4',
             'confirm_password' => 'required|same:password',

@@ -68,14 +68,14 @@
 
                                         <div class="col-12">
                                             <div class="form-floating theme-form-floating">
-                                                <input name="password" class="form-control" id="password"
+                                                <input type="password" name="password" class="form-control" id="password"
                                                     placeholder="Password" required>
                                                 <label for="password">Password</label>
                                             </div>
 
                                             <div class="col-12">
                                             <div class="form-floating theme-form-floating">
-                                                <input name="confirm_password" class="form-control" id="password"
+                                                <input type="password" name="confirm_password" class="form-control" id="password"
                                                     placeholder="confirm_Password" required>
                                                 <label for="password">Confirm Password</label>
                                             </div>
