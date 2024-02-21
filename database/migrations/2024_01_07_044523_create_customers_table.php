@@ -17,6 +17,11 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('name', 255);
             $table->text('address');
+            $table->varchar('email');
+            $table->varchar('phone');
+            $table->string('password');
+            $table->string('email_verified_at')-> nullable();
+            $table->timestamp('created_at')->nullable();
             $table->timestamps();
         });
     }

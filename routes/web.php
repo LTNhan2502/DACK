@@ -6,11 +6,15 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\CategoriesController;
+
 use App\Http\Controllers\Api\SpController;
 use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Htsp;
 
 
+
+
+use App\Http\Controllers\AccountController;
 
 
 /*
@@ -55,3 +59,25 @@ Route::get('/admin/login', [AdminController::class, 'login'])->name('admin.login
 Route::post('/admin/login', [AdminController::class, 'check_login']);
 Route::get('/admin/register', [AdminController::class, 'register'])->name('admin.register');
 Route::post('/admin/register', [AdminController::class, 'check_register']);
+
+
+Route::group(['prefix' => 'account'], function(){
+    Route::get('/login',[AccountController::class,'login'])->name('account.login');
+    Route::post('/login',[AccountController::class,'check_login']);
+
+    Route::get('/register',[AccountController::class,'register'])->name('account.register');
+    Route::post('/register',[AccountController::class,'check_register']);
+
+    Route::get('/profile',[AccountController::class,'profile'])->name('account.profile');
+    Route::post('/profile',[AccountController::class,'check_profile']);
+
+    Route::get('/change-password',[AccountController::class,'change_password'])->name('account.change_password');
+    Route::post('/change-password',[AccountController::class,'check_change_password']);
+
+    Route::get('/forgot-password',[AccountController::class,'forgot_password'])->name('account.forgot_password');
+    Route::post('/forgot-password',[AccountController::class,'check_forgot_password']);
+
+    Route::get('/reset-password',[AccountController::class,'reset_password'])->name('account.reset_password');
+    Route::post('/reset-password',[AccountController::class,'check_reset_password']);
+
+});
