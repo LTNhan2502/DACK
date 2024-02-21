@@ -1,21 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use DB;
 
-class SpController extends Controller
+class Shop extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(){
-       
-        $products = DB::table('products')->get(); 
-        
-        return view('home.sanphamchitiet', compact('products'));
+    public function index()
+    {
+        return view('home.shop');
     }
 
     /**
