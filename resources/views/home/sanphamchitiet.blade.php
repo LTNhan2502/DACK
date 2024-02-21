@@ -63,7 +63,7 @@
                     <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                         <div class="navbar-nav mx-auto">
                             <a href="k.html" class="nav-item nav-link">Home</a>
-                            <a href="shop.html" class="nav-item nav-link">Shop</a>
+                            <a  href="{{ route('shop') }}" class="nav-item nav-link">Shop</a>
                             <a href="{{ route('sanphamchitiet') }}"  class="nav-item nav-link active">Shop Detail</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
